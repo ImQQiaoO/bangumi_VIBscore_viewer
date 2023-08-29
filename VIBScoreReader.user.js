@@ -5,6 +5,7 @@
 // @description  在番剧界面直接显示VIB评分
 // @author       ImQQiaoO
 // @include      /^https?:\/\/(bangumi|bgm|chii)\.(tv|in)\/subject\/.*$/
+// @license      MIT
 // ==/UserScript==
 
 let curr_subject = window.location.href;
