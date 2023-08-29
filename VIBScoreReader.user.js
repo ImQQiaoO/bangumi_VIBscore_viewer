@@ -52,7 +52,7 @@ fetch(target_url)
         if (pageHTML.indexOf("VIB") !== -1) {
             let regex_pattern = "\"chart_root\":\"chartVIB\",\"data\":.*,\"series_set\":"; // 正则表达式
             let VIB_content = pageHTML.match(regex_pattern); // 使用match()方法匹配正则表达式
-            VIB_score = get_aver(VIB_content);
+            VIB_score = get_aver(VIB_content).toFixed(4);
 
             // 在这里处理获取到的内容
             console.log(VIB_score);
@@ -61,6 +61,16 @@ fetch(target_url)
             // 在这里处理获取到的内容
             console.log(VIB_score);
         }
+        // 创建一个新元素来显示VIB评分
+        let vibScoreElement = document.createElement("span");
+        vibScoreElement.innerText = "VIB评分：" + VIB_score;
+
+        // 找到原评分的元素
+        let originalScoreElement = document.querySelector(".number");
+
+        // 将vibScoreElement插入到原评分元素的后面
+        originalScoreElement.parentNode.insertBefore(vibScoreElement, originalScoreElement.nextSibling);
+
     })
     .catch(error => {
         console.error('请求目标页面时出错:', error);
