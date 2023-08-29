@@ -1,0 +1,5 @@
+.vscode
+*.iml
+.idea
+example.js
+package.json
